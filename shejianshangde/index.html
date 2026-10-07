@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>舌尖上的中国手游-高清画质与沉浸式美食体验</title>
+    <meta name="description" content="舌尖上的中国手游官方攻略站，提供最新版本下载、角色养成指南、关卡攻略及烹饪技巧。探索中华美食文化，体验极致模拟经营玩法。">
+    <meta name="keywords" content="舌尖上的中国手游,舌尖上的中国,美食手游,模拟经营,烹饪游戏,手游攻略">
+    <style>
+        :root {
+            --primary-color: #d35400;
+            --secondary-color: #e67e22;
+            --bg-color: #fdf6e3;
+            --text-color: #2c3e50;
+            --light-text: #7f8c8d;
+            --card-bg: #ffffff;
+            --accent-green: #27ae60;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .section-desc {
+            text-align: center;
+            color: var(--light-text);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(211, 84, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(211, 84, 0, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://picsum.photos/seed/foodhero/1920/1080.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 4rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Game Features */
+        .features {
+            padding: 2rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            background: #fff3e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .feature-card p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+
+        /* Gameplay Section */
+        .gameplay {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .gameplay-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .gameplay-img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .gameplay-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .gameplay-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .gameplay-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .gameplay-list {
+            margin-top: 2rem;
+        }
+
+        .gameplay-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .gameplay-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .gameplay-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .gameplay-text p {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        /* Character Section */
+        .characters {
+            padding: 5rem 0;
+        }
+
+        .char-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .char-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .char-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .char-img-wrapper {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .char-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .char-info {
+            padding: 20px;
+        }
+
+        .char-role {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .char-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        /* Download Section */
+        .download-section {
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            padding: 5rem 0;
+            color: white;
+            text-align: center;
+        }
+
+        .download-box {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .app-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .app-icon-lg {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .app-icon-lg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .app-meta h3 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .app-meta p {
+            opacity: 0.8;
+        }
+
+        .btn-large {
+            display: inline-block;
+            background: var(--accent-green);
+            color: white;
+            padding: 15px 50px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(39, 174, 96, 0.4);
+            transition: all 0.3s;
+        }
+
+        .btn-large:hover {
+            background: #2ecc71;
+            transform: scale(1.05);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 5rem 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--light-text);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 200px;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h4 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col h5 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .gameplay-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .char-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <span>🍽️</span> 舌尖上的中国手游
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#features">特色</a></li>
+                    <li><a href="#gameplay">玩法</a></li>
+                    <li><a href="#characters">角色</a></li>
+                    <li><a href="#download">下载</a></li>
+                </ul>
+            </nav>
+            <a href="#download" class="btn-download">立即下载</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>品味中华，指尖生香</h1>
+                <div class="hero-tags">
+                    <span class="tag">极致画质</span>
+                    <span class="tag">沉浸体验</span>
+                    <span class="tag">文化传承</span>
+                </div>
+                <p>还原纪录片《舌尖上的中国》原汁原味，从田间地头到餐桌盛宴，体验最真实的美食制作过程与烹饪乐趣。</p>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="#download" class="btn-large">安卓下载</a>
+                    <a href="#download" class="btn-large" style="background: transparent; border: 2px solid white; box-shadow: none;">iOS 体验</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features container">
+            <h2 class="section-title">游戏特色</h2>
+            <p class="section-desc">不仅仅是游戏，更是一场关于美食的探索之旅。</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon-box">📷</div>
+                    <h3>超清实拍画质</h3>
+                    <p>采用电影级渲染技术，捕捉食材纹理与烹饪时的烟火气，带来视觉盛宴。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">🌍</div>
+                    <h3>地理美食探索</h3>
+                    <p>跨越中国八大菜系，从南到北，从东到西，解锁隐藏的民间美食传说。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">👨‍🍳</div>
+                    <h3>真实烹饪模拟</h3>
+                    <p>刀工、火候、调味，每一个步骤都讲究科学，还原大师级烹饪体验。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gameplay Section -->
+        <section id="gameplay" class="gameplay">
+            <div class="container gameplay-layout">
+                <div class="gameplay-img">
+                    <img src="https://picsum.photos/seed/cookinggame/800/600.jpg" alt="游戏玩法示意图">
+                </div>
+                <div class="gameplay-content">
+                    <h2>从田间到餐桌的完整旅程</h2>
+                    <p>在游戏中，你将扮演一名初出茅庐的美食家，从整理食材开始，一步步掌握烹饪的精髓。</p>
+                    <div class="gameplay-list">
+                        <div class="gameplay-item">
+                            <div class="gameplay-icon">1</div>
+                            <div class="gameplay-text">
+                                <h4>食材甄选</h4>
+                                <p>寻找最新鲜的时令食材，了解产地与生长环境，为烹饪打下基础。</p>
+                            </div>
+                        </div>
+                        <div class="gameplay-item">
+                            <div class="gameplay-icon">2</div>
+                            <div class="gameplay-text">
+                                <h4>刀工与火候</h4>
+                                <p>掌握切、配、炒、炖的技巧，根据食材特性调整火候，决定成败。</p>
+                            </div>
+                        </div>
+                        <div class="gameplay-item">
+                            <div class="gameplay-icon">3</div>
+                            <div class="gameplay-text">
+                                <h4>美食传播</h4>
+                                <p>通过精湛的厨艺吸引食客，建立自己的美食王国，传承中华味道。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Characters Section -->
+        <section id="characters" class="characters container">
+            <h2 class="section-title">知名主厨</h2>
+            <p class="section-desc">跟随传奇大厨的脚步，学习经典菜肴。</p>
+            <div class="char-grid">
+                <div class="char-card">
+                    <div class="char-img-wrapper">
+                        <img src="https://picsum.photos/seed/chef1/400/500.jpg" alt="李大厨">
+                    </div>
+                    <div class="char-info">
+                        <span class="char-role">川菜宗师</span>
+                        <div class="char-name">李大厨</div>
+                        <p style="font-size: 0.9rem; color: #7f8c8d;">擅长麻辣鲜香，火候掌控大师。</p>
+                    </div>
+                </div>
+                <div class="char-card">
+                    <div class="char-img-wrapper">
+                        <img src="https://picsum.photos/seed/chef2/400/500.jpg" alt="王师傅">
+                    </div>
+                    <div class="char-info">
+                        <span class="char-role">淮扬菜代表</span>
+                        <div class="char-name">王师傅</div>
+                        <p style="font-size: 0.9rem; color: #7f8c8d;">刀工精细，讲究食材本味。</p>
+                    </div>
+                </div>
+                <div class="char-card">
+                    <div class="char-img-wrapper">
+                        <img src="https://picsum.photos/seed/chef3/400/500.jpg" alt="陈小姐">
+                    </div>
+                    <div class="char-info">
+                        <span class="char-role">粤菜新秀</span>
+                        <div class="char-name">陈小姐</div>
+                        <p style="font-size: 0.9rem; color: #7f8c8d;">擅长汤品制作，清淡养生。</p>
+                    </div>
+                </div>
+                <div class="char-card">
+                    <div class="char-img-wrapper">
+                        <img src="https://picsum.photos/seed/chef4/400/500.jpg" alt="赵大爷">
+                    </div>
+                    <div class="char-info">
+                        <span class="char-role">面点大师</span>
+                        <div class="char-name">赵大爷</div>
+                        <p style="font-size: 0.9rem; color: #7f8c8d;">手擀面技艺传承者。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="download-section">
+            <div class="container">
+                <div class="download-box">
+                    <div class="app-info">
+                        <div class="app-icon-lg">
+                            <img src="https://picsum.photos/seed/appicon/200/200.jpg" alt="App Icon">
+                        </div>
+                        <div class="app-meta">
+                            <h3>舌尖上的中国手游</h3>
+                            <p>版本 1.0.2 | 大小 1.2GB | 包含所有内容包</p>
+                        </div>
+                    </div>
+                    <p style="margin-bottom: 30px; opacity: 0.9;">立即下载，开启您的美食之旅。支持安卓 5.0+ 及 iOS 10.0+。</p>
+                    <a href="#" class="btn-large">立即下载安卓版</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq container">
+            <h2 class="section-title">常见问题</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    游戏需要联网吗？
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    游戏的主要玩法需要联网以同步服务器数据和进行社交互动，但部分离线烹饪模式可以断网体验。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    游戏收费吗？
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    游戏基础内容免费，部分高级食材、装饰道具及皮肤可通过内购购买，也可通过日常任务免费获取。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    支持哪些设备？
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    全面支持 Android 手机和平板（推荐 8GB 以上内存），iOS 设备需 iOS 10.0 及以上系统。
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>🍽️ 舌尖上的中国手游</h4>
+                    <p>致力于通过游戏传播中华美食文化，让每一位玩家都能感受到食物带来的温暖与力量。</p>
+                </div>
+                <div class="footer-col">
+                    <h5>快速链接</h5>
+                    <ul>
+                        <li><a href="#">游戏官网</a></li>
+                        <li><a href="#">玩家社区</a></li>
+                        <li><a href="#">官方微博</a></li>
+                        <li><a href="#">客服中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>游戏指南</h5>
+                    <ul>
+                        <li><a href="#">新手入门</a></li>
+                        <li><a href="#">烹饪技巧</a></li>
+                        <li><a href="#">食谱大全</a></li>
+                        <li><a href="#">活动公告</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>关于我们</h5>
+                    <ul>
+                        <li><a href="#">公司介绍</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 舌尖上的中国手游官方团队 版权所有. 本页面为非官方粉丝制作展示页。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <script>
+        // Simple FAQ Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+  </html>
