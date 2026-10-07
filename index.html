@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="花都少帅下载 - 提供正版花都少帅小说阅读、电子书资源下载、TXT格式分享及在线阅读服务。包含章节目录、人物介绍及最新更新动态。">
+    <meta name="keywords" content="花都少帅下载,花都少帅,小说下载,网络小说,都市小说,TXT下载">
+    <title>花都少帅下载 - 都市言情小说资源与在线阅读平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8b2e2e;
+            --secondary-color: #c0392b;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f9f9f9;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            margin-left: 8px;
+            font-size: 14px;
+            color: var(--text-gray);
+            font-weight: normal;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .header-actions .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            padding: 60px 0;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .download-box {
+            display: inline-flex;
+            gap: 16px;
+            align-items: center;
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .btn-download {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-download:hover {
+            background-color: var(--primary-color);
+        }
+
+        .file-info {
+            text-align: left;
+            padding-left: 20px;
+            border-left: 1px solid #eee;
+        }
+
+        .file-name {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .file-meta {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        /* Main Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Content Section */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 18px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .chapter-list {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .chapter-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.2s;
+        }
+
+        .chapter-item:last-child {
+            border-bottom: none;
+        }
+
+        .chapter-item:hover {
+            background-color: #fafafa;
+        }
+
+        .chapter-title {
+            font-size: 15px;
+            color: var(--text-dark);
+        }
+
+        .chapter-date {
+            font-size: 13px;
+            color: #999;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 8px;
+        }
+
+        .page-link {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .page-link.active, .page-link:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .card h3 {
+            font-size: 16px;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            font-size: 13px;
+            padding: 4px 12px;
+            background-color: #f0f0f0;
+            border-radius: 20px;
+            color: var(--text-gray);
+        }
+
+        .tag:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .intro-text {
+            font-size: 14px;
+            color: var(--text-gray);
+            text-align: justify;
+        }
+
+        /* Reader Area (Sticky) */
+        .reader-sticky {
+            position: sticky;
+            top: 90px;
+        }
+
+        .chapter-content {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            line-height: 2;
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        .chapter-content h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+
+        .chapter-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .download-box {
+                flex-direction: column;
+                text-align: center;
+                border-left: none;
+                border-top: 1px solid #eee;
+                padding-left: 0;
+                padding-top: 20px;
+            }
+
+            .chapter-content {
+                padding: 20px;
+                font-size: 15px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">小说资源库 <span>在线阅读与下载</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">分类</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">我的书架</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-primary">登录 / 注册</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>花都少帅</h1>
+                <p>重生归来，都市少帅再临天下。热血爽文，情节跌宕起伏，精彩不容错过。</p>
+                
+                <div class="download-box">
+                    <a href="#" class="btn-download">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        立即下载TXT
+                    </a>
+                    <div class="file-info">
+                        <div class="file-name">花都少帅.txt</div>
+                        <div class="file-meta">大小：2.5MB | 更新至：第 156 章</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container main-grid">
+            <!-- Left Content: Chapter List -->
+            <div class="content-area">
+                <div class="section-header">
+                    <h2 class="section-title">章节目录</h2>
+                    <div class="filter-sort">
+                        <select style="padding: 4px; border-radius: 4px; border: 1px solid #ddd;">
+                            <option>按章节排序</option>
+                            <option>按发布时间</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="chapter-list">
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-title">第一卷：初临都市 第一章 重生归来</span>
+                        <span class="chapter-date">2023-10-24</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-title">第一卷：初临都市 第二章 意外的电话</span>
+                        <span class="chapter-date">2023-10-24</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-title">第一卷：初临都市 第三章 前世的遗憾</span>
+                        <span class="chapter-date">2023-10-25</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-title">第一卷：初临都市 第四章 遇见林婉儿</span>
+                        <span class="chapter-date">2023-10-25</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-title">第一卷：初临都市 第五章 霸道总裁的挑衅</span>
+                        <span class="chapter-date">2023-10-26</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-title">第一卷：初临都市 第六章 谁才是老大</span>
+                        <span class="chapter-date">2023-10-26</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-title">第一卷：初临都市 第七章 暴揍赵泰</span>
+                        <span class="chapter-date">2023-10-27</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-title">第一卷：初临都市 第八章 林家的危机</span>
+                        <span class="chapter-date">2023-10-27</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-title">第一卷：初临都市 第九章 少帅的手段</span>
+                        <span class="chapter-date">2023-10-28</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-title">第一卷：初临都市 第十章 资金到位</span>
+                        <span class="chapter-date">2023-10-28</span>
+                    </a>
+                </div>
+
+                <div class="pagination">
+                    <a href="#" class="page-link active">1</a>
+                    <a href="#" class="page-link">2</a>
+                    <a href="#" class="page-link">3</a>
+                    <a href="#" class="page-link">4</a>
+                    <a href="#" class="page-link">5</a>
+                    <a href="#" class="page-link">下一页</a>
+                </div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <aside>
+                <!-- Intro Card -->
+                <div class="card reader-sticky">
+                    <h3>作品简介</h3>
+                    <p class="intro-text">
+                        前世，他是令人闻风丧胆的兵王少帅，却因兄弟背叛惨死街头。这一世，他重生回到十年前，面对林家破产的危机，面对未婚妻的退婚羞辱。他发誓，这一世，他要护林家周全，要让所有看不起他的人付出代价！
+                    </p>
+                    <div style="margin-top: 15px; display: flex; gap: 10px;">
+                        <span style="background:#eee; padding:2px 8px; border-radius:4px; font-size:12px;">都市</span>
+                        <span style="background:#eee; padding:2px 8px; border-radius:4px; font-size:12px;">重生</span>
+                        <span style="background:#eee; padding:2px 8px; border-radius:4px; font-size:12px;">权谋</span>
+                    </div>
+                </div>
+
+                <!-- Download Tools -->
+                <div class="card">
+                    <h3>下载工具</h3>
+                    <ul style="font-size: 14px; color: var(--text-gray);">
+                        <li style="margin-bottom: 8px;">→ 微信读书PC版下载</li>
+                        <li style="margin-bottom: 8px;">→ Calibre电子书管理软件</li>
+                        <li style="margin-bottom: 8px;">→ TXT格式转换器</li>
+                        <li>→ 阅读APP下载</li>
+                    </ul>
+                </div>
+
+                <!-- Hot Tags -->
+                <div class="card">
+                    <h3>热门标签</h3>
+                    <div class="tag-cloud">
+                        <a href="#" class="tag">花都少帅</a>
+                        <a href="#" class="tag">都市爽文</a>
+                        <a href="#" class="tag">重生逆袭</a>
+                        <a href="#" class="tag">兵王</a>
+                        <a href="#" class="tag">总裁</a>
+                        <a href="#" class="tag">林婉儿</a>
+                        <a href="#" class="tag">赵泰</a>
+                        <a href="#" class="tag">少帅</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Content Reader Area -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">正在阅读</h2>
+                <div>
+                    <button style="padding: 6px 12px; background: #fff; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; margin-right: 8px;">上一章</button>
+                    <button style="padding: 6px 12px; background: #fff; border: 1px solid #ddd; border-radius: 4px; cursor: pointer;">下一章</button>
+                </div>
+            </div>
+            
+            <article class="chapter-content">
+                <h2>第一卷：初临都市 第一章 重生归来</h2>
+                <p>剧烈的头痛感让苏羽猛地睁开双眼，入目并非医院的白色天花板，而是略显昏暗的出租屋天花板。空气中弥漫着一股陈旧发霉的味道，这让他心头一震。</p>
+                <p>“我……没死？”苏羽喃喃自语，下意识地摸了摸自己的胸口。那里没有贯穿的刀伤，也没有冰冷的血迹，只有一颗还在有力跳动的脏器。他猛地坐起身，看着窗外陌生的街景，震惊得说不出话来。</p>
+                <p>记忆如潮水般涌入脑海，让他瞬间明白了发生了什么。十年前，他是代号“龙牙”的兵王少帅，在一次秘密任务中，被身边最信任的兄弟背叛，惨死在异国他乡。而眼前这一切，正是十年前他重生归来的那一天。</p>
+                <p>“赵泰……林婉儿……”苏羽握紧了拳头，指节因为用力而发白。前世，林家因为资金链断裂被赵泰吞并，林婉儿更是被迫嫁入豪门受尽屈辱。这一世，他绝不会再让悲剧重演。</p>
+                <p>就在这时，床头柜上的手机突然疯狂震动起来。苏羽看了一眼屏幕，上面赫然显示着“林婉儿”三个字。他深吸一口气，接通了电话。</p>
+                <p>“苏羽，你终于肯接电话了。”电话那头传来了林婉儿带着哭腔的声音，“爸的公司出事了，赵泰他们逼宫，你要是还有良心，就赶紧来公司一趟！”</p>
+                <p>听到赵泰的名字，苏羽眼中的寒光一闪而逝，嘴角勾起一抹冷笑。“婉儿，你放心，我马上就到。这一次，我会让赵泰知道，谁才是真正的老大。”</p>
+                <p>挂断电话，苏羽迅速洗漱完毕，换上一身黑色的风衣。看着镜子里年轻了十岁的自己，他整理了一下衣领，推门而出。</p>
+                <p>此时，阳光正好洒在街道上，但对于苏羽来说，这不仅仅是一个普通的清晨，而是一个新的开始，一场属于他的复仇与逆袭之路，正式拉开了序幕。</p>
+                <p>（本章完）</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="font-size: 14px; line-height: 1.8;">
+                        本站致力于为用户提供安全、便捷的小说阅读与下载服务。所有资源均来源于网络，仅供个人学习交流使用，请勿用于商业用途。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">网站地图</a></li>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">版权投诉</a></li>
+                        <li><a href="#">帮助中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门分类</h4>
+                    <ul>
+                        <li><a href="#">都市小说</a></li>
+                        <li><a href="#">玄幻修真</a></li>
+                        <li><a href="#">历史军事</a></li>
+                        <li><a href="#">科幻灵异</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>邮箱：support@novel-site.com</li>
+                        <li>微信：novel_down</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 花都少帅下载平台 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
