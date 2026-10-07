@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>强者领域-硬核竞技格斗游戏综合指南与社区</title>
+    <meta name="description" content="强者领域专业游戏门户网站，提供最新游戏资讯、深度攻略、职业评测、装备搭配及玩家社区交流，助您在强者领域中登顶巅峰。">
+    <meta name="keywords" content="强者领域, 硬核格斗, 竞技游戏, 攻略指南, 职业评测, 装备搭配">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff4500;
+            --secondary-color: #1a1a1a;
+            --accent-color: #ffd700;
+            --text-color: #e0e0e0;
+            --bg-dark: #0f0f0f;
+            --bg-card: #1e1e1e;
+            --bg-hover: #2a2a2a;
+            --spacing-unit: 16px;
+            --border-radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(15, 15, 15, 0.95);
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            backdrop-filter: blur(5px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: #ccc;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #ff6347;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 69, 0, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--bg-dark)), url('https://picsum.photos/seed/fightinggame/1600/900') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #ddd;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+        }
+
+        /* Game Info Grid */
+        .game-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Latest News */
+        .news-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .news-main {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 20px;
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            transition: transform 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .news-item:hover {
+            transform: translateX(5px);
+            border-color: #333;
+            background: var(--bg-hover);
+        }
+
+        .news-img {
+            width: 200px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .news-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .news-tag {
+            font-size: 12px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .news-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .news-meta {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .news-sidebar {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            height: fit-content;
+        }
+
+        .news-sidebar h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .sidebar-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .sidebar-list li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-list a {
+            font-size: 14px;
+        }
+
+        .sidebar-list span {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Guides Section */
+        .guides-section {
+            background-color: #151515;
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .guide-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #333;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            border-color: var(--primary-color);
+        }
+
+        .guide-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .guide-body {
+            padding: 20px;
+        }
+
+        .guide-category {
+            color: var(--accent-color);
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .guide-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .guide-excerpt {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .guide-link {
+            font-size: 13px;
+            color: var(--primary-color);
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .guide-link::after {
+            content: '→';
+            margin-left: 5px;
+            transition: margin-left 0.2s;
+        }
+
+        .guide-card:hover .guide-link::after {
+            margin-left: 10px;
+        }
+
+        /* Ranking Section */
+        .ranking-container {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .ranking-main {
+            flex: 2;
+        }
+
+        .ranking-sidebar {
+            flex: 1;
+        }
+
+        .ranking-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .ranking-table th, .ranking-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        .ranking-table th {
+            background: #252525;
+            font-weight: bold;
+            color: #ccc;
+        }
+
+        .ranking-table tr:hover {
+            background: var(--bg-hover);
+        }
+
+        .rank-num {
+            font-weight: bold;
+            width: 50px;
+            text-align: center;
+        }
+
+        .rank-1 { color: var(--accent-color); font-size: 20px; }
+        .rank-2 { color: #c0c0c0; font-size: 18px; }
+        .rank-3 { color: #cd7f32; font-size: 18px; }
+
+        .class-icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: #333;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            background: var(--bg-card);
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-hover);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: #999;
+            display: none;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 50px 0 20px;
+            border-top: 1px solid #222;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #111;
+            color: #555;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ranking-container {
+                flex-direction: column;
+            }
+
+            .news-item {
+                flex-direction: column;
+            }
+
+            .news-img {
+                width: 100%;
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">强者<span>领域</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">游戏资讯</a></li>
+                    <li><a href="#">进阶攻略</a></li>
+                    <li><a href="#">职业图鉴</a></li>
+                    <li><a href="#">社区论坛</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">注册账号</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>征服竞技场，定义你的强者领域</h1>
+                    <p>深度解析强者领域最新版本机制，提供全职业连招教学、PVP实战技巧与高端局出装方案。即刻加入，与百万玩家共同角逐荣耀。</p>
+                    <div style="display: flex; gap: 15px;">
+                        <button class="btn btn-primary">阅读最新攻略</button>
+                        <button class="btn btn-outline" style="border-color: #fff; color: #fff;">查看版本更新</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Stats -->
+        <div class="container">
+            <section class="game-stats">
+                <div class="stat-card">
+                    <span class="stat-number">12.5万+</span>
+                    <span class="stat-label">日活跃玩家</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">独特竞技职业</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">顶级竞技场赛事</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">玩家好评度</span>
+                </div>
+            </section>
+        </div>
+
+        <!-- Latest News & Sidebar -->
+        <div class="container">
+            <section class="news-grid">
+                <div class="news-main">
+                    <h2 class="section-title">最新动态</h2>
+                    
+                    <article class="news-item">
+                        <img src="https://picsum.photos/seed/game1/400/300" alt="游戏新闻配图" class="news-img">
+                        <div class="news-content">
+                            <span class="news-tag">版本更新</span>
+                            <h3 class="news-title">S12赛季“深渊降临”版本前瞻：新地图与新BOSS详解</h3>
+                            <p class="news-meta">2023-10-24 | 攻略组发布</p>
+                        </div>
+                    </article>
+
+                    <article class="news-item">
+                        <img src="https://picsum.photos/seed/game2/400/300" alt="游戏新闻配图" class="news-img">
+                        <div class="news-content">
+                            <span class="news-tag">赛事资讯</span>
+                            <h3 class="news-title">强者领域全球总决赛即将打响，百万奖金池等你来拿</h3>
+                            <p class="news-meta">2023-10-22 | 电竞中心</p>
+                        </div>
+                    </article>
+
+                    <article class="news-item">
+                        <img src="https://picsum.photos/seed/game3/400/300" alt="游戏新闻配图" class="news-img">
+                        <div class="news-content">
+                            <span class="news-tag">系统优化</span>
+                            <h3 class="news-title">客户端性能全面升级，加载速度提升40%，优化网络延迟</h3>
+                            <p class="news-meta">2023-10-20 | 客服公告</p>
+                        </div>
+                    </article>
+                </div>
+
+                <aside class="news-sidebar">
+                    <h3>热门榜单</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#">S12最强刺客排行分析</a> <span>2.3k</span></li>
+                        <li><a href="#">辅助职业团战生存指南</a> <span>1.8k</span></li>
+                        <li><a href="#">新装备“破晓之刃”实测</a> <span>1.5k</span></li>
+                        <li><a href="#">PVP反制技巧大全</a> <span>1.2k</span></li>
+                        <li><a href="#">职业平衡性调整汇总</a> <span>980</span></li>
+                    </ul>
+                </aside>
+            </section>
+        </div>
+
+        <!-- Guides Section -->
+        <section class="guides-section">
+            <div class="container">
+                <h2 class="section-title">深度攻略 <a href="#" style="font-size:14px; font-weight:normal; color:#666;">查看更多 &raquo;</a></h2>
+                
+                <div class="guides-grid">
+                    <article class="guide-card">
+                        <img src="https://picsum.photos/seed/guide1/400/300" alt="攻略封面" class="guide-img">
+                        <div class="guide-body">
+                            <span class="guide-category">新手入门</span>
+                            <h3 class="guide-title">强者领域零基础快速上手：从创建角色到首杀BOSS</h3>
+                            <p class="guide-excerpt">新手玩家必读，详细介绍职业选择、属性加点路线以及前期装备获取技巧，助你避开新手村常见误区。</p>
+                            <a href="#" class="guide-link">阅读全文</a>
+                        </div>
+                    </article>
+
+                    <article class="guide-card">
+                        <img src="https://picsum.photos/seed/guide2/400/300" alt="攻略封面" class="guide-img">
+                        <div class="guide-body">
+                            <span class="guide-category">PVP技巧</span>
+                            <h3 class="guide-title">高端局连招教学：如何打出教科书般的“完美连击”</h3>
+                            <p class="guide-excerpt">解析连招衔接的帧数细节，包含QWER技能释放顺序与取消后摇的实用技巧，提升你的操作上限。</p>
+                            <a href="#" class="guide-link">阅读全文</a>
+                        </div>
+                    </article>
+
+                    <article class="guide-card">
+                        <img src="https://picsum.photos/seed/guide3/400/300" alt="攻略封面" class="guide-img">
+                        <div class="guide-body">
+                            <span class="guide-category">装备搭配</span>
+                            <h3 class="guide-title">S12赛季毕业级出装推荐：坦克与战士的生存与输出平衡</h3>
+                            <p class="guide-excerpt">针对当前版本环境，提供不同流派的装备组合方案，帮助你在竞技场中应对各种突发状况。</p>
+                            <a href="#" class="guide-link">阅读全文</a>
+                        </div>
+                    </article>
+
+                    <article class="guide-card">
+                        <img src="https://picsum.photos/seed/guide4/400/300" alt="攻略封面" class="guide-img">
+                        <div class="guide-body">
+                            <span class="guide-category">副本攻略</span>
+                            <h3 class="guide-title">深渊副本机制详解：如何高效清理小怪与躲避全屏AOE</h3>
+                            <p class="guide-excerpt">副本攻略组最新总结，详细标注BOSS技能前摇与躲避位置，助你团队副本通关率提升至90%。</p>
+                            <a href="#" class="guide-link">阅读全文</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ranking Section -->
+        <div class="container">
+            <div class="ranking-container">
+                <div class="ranking-main">
+                    <h2 class="section-title">职业环境分析</h2>
+                    <table class="ranking-table">
+                        <thead>
+                            <tr>
+                                <th>排名</th>
+                                <th>职业名称</th>
+                                <th>胜率</th>
+                                <th>Ban率</th>
+                                <th>当前强度</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="rank-num rank-1">1</td>
+                                <td><span class="class-icon">⚔️</span>暗影刺客</td>
+                                <td>52.4%</td>
+                                <td>85%</td>
+                                <td style="color: #ff4500; font-weight:bold;">T0</td>
+                            </tr>
+                            <tr>
+                                <td class="rank-num rank-2">2</td>
+                                <td><span class="class-icon">🛡️</span>圣殿骑士</td>
+                                <td>51.8%</td>
+                                <td>60%</td>
+                                <td style="color: #ff4500; font-weight:bold;">T0</td>
+                            </tr>
+                            <tr>
+                                <td class="rank-num rank-3">3</td>
+                                <td><span class="class-icon">🔥</span>炎魔术士</td>
+                                <td>50.2%</td>
+                                <td>45%</td>
+                                <td style="color: #ff4500; font-weight:bold;">T1</td>
+                            </tr>
+                            <tr>
+                                <td class="rank-num">4</td>
+                                <td><span class="class-icon">🏹</span>神射手</td>
+                                <td>49.5%</td>
+                                <td>30%</td>
+                                <td style="color: #ffa500;">T1</td>
+                            </tr>
+                            <tr>
+                                <td class="rank-num">5</td>
+                                <td><span class="class-icon">🔮</span>元素法师</td>
+                                <td>48.9%</td>
+                                <td>20%</td>
+                                <td style="color: #ffa500;">T1</td>
+                            </tr>
+                            <tr>
+                                <td class="rank-num">6</td>
+                                <td><span class="class-icon">⚔️</span>狂战士</td>
+                                <td>47.2%</td>
+                                <td>15%</td>
+                                <td style="color: #ffd700;">T2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <aside class="ranking-sidebar">
+                    <h2 class="section-title" style="border:none; padding:0; margin-bottom:20px;">热门论坛话题</h2>
+                    <div class="sidebar-list">
+                        <li>
+                            <a href="#">关于S12刺客削弱的真实反馈</a>
+                        </li>
+                        <li>
+                            <a href="#">圣殿骑士如何反制暗影刺客？</a>
+                        </li>
+                        <li>
+                            <a href="#">新手玩什么职业不容易输？</a>
+                        </li>
+                        <li>
+                            <a href="#">全职业连招教学视频汇总</a>
+                        </li>
+                        <li>
+                            <a href="#">国服最强玩家段位挑战赛</a>
+                        </li>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="container">
+            <section class="faq-section">
+                <h2 class="section-title">常见问题解答</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: 新玩家如何快速提升战斗力？</div>
+                    <div class="faq-answer">A: 新手期建议优先完成主线任务获取经验，同时利用首充奖励获取强力装备。参与每日的“试炼场”活动可以获得大量强化材料，不要忽视这些日常积累。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: 强者领域支持跨服竞技吗？</div>
+                    <div class="faq-answer">A: 是的，游戏支持跨服匹配机制。除了常规的排位赛，每周六晚上的“跨服乱斗”活动将开放不同大区的玩家同台竞技，争夺全区荣誉。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: 装备强化失败会掉级吗？</div>
+                    <div class="faq-answer">A: 在强者领域，装备强化失败不会掉级，但会扣除一定的强化保护符。建议在装备等级达到上限后再进行高阶强化，并准备好足够的保护道具。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: 如何加入公会并参与公会战？</div>
+                    <div class="faq-answer">A: 玩家等级达到15级后即可在主城寻找公会管理员申请加入公会。公会战每周五、六晚20:00开启，参与公会战可获得稀有称号和大量贡献值。</div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 15px;">强者<span>领域</span></div>
+                    <p style="color: #666; font-size: 14px; line-height: 1.8;">
+                        强者领域致力于为玩家提供最专业、最及时的游戏资讯与攻略服务。在这里，每一位玩家都是自己的英雄。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">游戏首页</a></li>
+                        <li><a href="#">下载客户端</a></li>
+                        <li><a href="#">玩家社区</a></li>
+                        <li><a href="#">官方客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>游戏指南</h4>
+                    <ul>
+                        <li><a href="#">职业介绍</a></li>
+                        <li><a href="#">装备系统</a></li>
+                        <li><a href="#">副本攻略</a></li>
+                        <li><a href="#">PVP规则</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">官方微博</a></li>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">玩家QQ群</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 强者领域游戏资讯网 版权所有 | 本站内容仅供玩家参考，不代表游戏官方立场</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+                              </html>
