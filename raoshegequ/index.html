@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="饶舌歌曲在线试听与深度解析平台。收录经典与最新嘻哈作品，提供歌词翻译、说唱技巧教学、嘻哈文化科普及社区互动指南。">
+    <meta name="keywords" content="饶舌歌曲, 说唱, 嘻哈音乐, Hiphop, 歌词, Rap">
+    <title>饶舌歌曲-嘻哈音乐鉴赏、歌词解析与说唱文化社区</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff3e3e;
+            --secondary-color: #1a1a1a;
+            --bg-color: #f5f5f7;
+            --card-bg: #ffffff;
+            --text-main: #111111;
+            --text-sub: #666666;
+            --spacing-unit: 1rem;
+            --border-radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 1rem var(--spacing-unit);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.8;
+        }
+
+        nav a:hover, nav a.active {
+            opacity: 1;
+            color: var(--primary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 0.3rem 0.8rem;
+        }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            color: white;
+            outline: none;
+            width: 150px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%);
+            color: white;
+            padding: 4rem var(--spacing-unit);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 20% 50%, rgba(255, 62, 62, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.1);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .tag:hover {
+            background: var(--primary-color);
+        }
+
+        /* Main Content */
+        main {
+            max-width: var(--container-width);
+            margin: 2rem auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Section Layout */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #e5e5e5;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.6rem;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .view-all {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        .view-all:hover {
+            color: var(--primary-color);
+        }
+
+        /* Grid Layouts */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Song Cards */
+        .song-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .song-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-cover {
+            position: relative;
+            padding-top: 100%;
+            background-color: #ddd;
+        }
+
+        .card-cover img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-btn-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            cursor: pointer;
+        }
+
+        .song-card:hover .play-btn-overlay {
+            opacity: 1;
+        }
+
+        .play-icon {
+            width: 0; 
+            height: 0; 
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 14px solid white;
+            margin-left: 4px;
+        }
+
+        .card-info {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .song-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .artist-name {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-actions {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .action-btn {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .action-btn:hover {
+            color: var(--primary-color);
+        }
+
+        /* Featured Article */
+        .featured-article {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .article-img {
+            background-color: #eee;
+            min-height: 300px;
+        }
+
+        .article-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .article-tag {
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .article-excerpt {
+            color: var(--text-sub);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* Categories */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .category-item {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .category-item:hover {
+            border-color: var(--primary-color);
+            background: #fff5f5;
+        }
+
+        .cat-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 62, 62, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+        }
+
+        .cat-info h3 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .cat-info p {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-top: 3rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 0.8rem;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: #888;
+            padding: 3rem var(--spacing-unit);
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .featured-article {
+                grid-template-columns: 1fr;
+            }
+
+            .article-img {
+                min-height: 200px;
+            }
+
+            nav {
+                display: none; /* Simplified mobile nav for this demo */
+            }
+            
+            .header-inner {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <span>♪</span> RAP HUB
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">热门单曲</a></li>
+                    <li><a href="#">新歌速递</a></li>
+                    <li><a href="#">歌词库</a></li>
+                    <li><a href="#">说唱文化</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索饶舌歌曲...">
+                <span>🔍</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>探索饶舌歌曲的律动世界</h1>
+        <p>从经典 Old School 到现代 Trap，在这里发现属于你的节奏。</p>
+        <div class="hero-tags">
+            <span class="tag">🇺🇸 美式嘻哈</span>
+            <span class="tag">🇨🇳 国产说唱</span>
+            <span class="tag">🎤 押韵技巧</span>
+            <span class="tag">🎵 制作流派</span>
+        </div>
+    </section>
+
+    <main>
+        <!-- New Arrivals Section -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">新歌上线</h2>
+                <a href="#" class="view-all">查看全部 →</a>
+            </div>
+            <div class="grid-4">
+                <article class="song-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/rap1/300/300" alt="专辑封面">
+                        <div class="play-btn-overlay">
+                            <div class="play-icon"></div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="song-title">霓虹灯下</h3>
+                        <p class="artist-name">MC 智慧</p>
+                        <div class="card-actions">
+                            <button class="action-btn">▶ 试听</button>
+                            <button class="action-btn">♥ 收藏</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="song-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/rap2/300/300" alt="专辑封面">
+                        <div class="play-btn-overlay">
+                            <div class="play-icon"></div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="song-title">城市回响</h3>
+                        <p class="artist-name">Flow Master</p>
+                        <div class="card-actions">
+                            <button class="action-btn">▶ 试听</button>
+                            <button class="action-btn">♥ 收藏</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="song-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/rap3/300/300" alt="专辑封面">
+                        <div class="play-btn-overlay">
+                            <div class="play-icon"></div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="song-title">午夜电台</h3>
+                        <p class="artist-name">Jazz Cat</p>
+                        <div class="card-actions">
+                            <button class="action-btn">▶ 试听</button>
+                            <button class="action-btn">♥ 收藏</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="song-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/rap4/300/300" alt="专辑封面">
+                        <div class="play-btn-overlay">
+                            <div class="play-icon"></div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="song-title">街头日记</h3>
+                        <p class="artist-name">Street Poet</p>
+                        <div class="card-actions">
+                            <button class="action-btn">▶ 试听</button>
+                            <button class="action-btn">♥ 收藏</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Featured Analysis -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">深度赏析</h2>
+                <a href="#" class="view-all">阅读更多 →</a>
+            </div>
+            <article class="featured-article">
+                <div class="article-img">
+                    <img src="https://picsum.photos/seed/studio/600/400" alt="录音室">
+                </div>
+                <div class="article-content">
+                    <span class="article-tag">技巧教学</span>
+                    <h2 class="article-title">如何提升饶舌歌曲的Flow与押韵技巧？</h2>
+                    <p class="article-excerpt">Flow是饶舌的灵魂。本文将带你深入了解三连音、双押技巧以及如何在伴奏中寻找节奏点，让你的歌词更具穿透力。</p>
+                    <a href="#" class="view-all" style="color: var(--primary-color); font-weight: bold;">阅读全文</a>
+                </div>
+            </article>
+        </section>
+
+        <!-- Categories -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">流派分类</h2>
+            </div>
+            <div class="category-grid">
+                <div class="category-item">
+                    <div class="cat-icon">🥁</div>
+                    <div class="cat-info">
+                        <h3>Old School</h3>
+                        <p>早期嘻哈，注重歌词与节奏</p>
+                    </div>
+                </div>
+                <div class="category-item">
+                    <div class="cat-icon">🔥</div>
+                    <div class="cat-info">
+                        <h3>Trap</h3>
+                        <p>重低音，现代流行说唱主流</p>
+                    </div>
+                </div>
+                <div class="category-item">
+                    <div class="cat-icon">🎹</div>
+                    <div class="cat-info">
+                        <h3>Boombap</h3>
+                        <p>Boom Bap鼓点，经典复古</p>
+                    </div>
+                </div>
+                <div class="category-item">
+                    <div class="cat-icon">🎤</div>
+                    <div class="cat-info">
+                        <h3>Emo Rap</h3>
+                        <p>情感宣泄，内省与忧郁</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Charts -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">本周榜单</h2>
+                <a href="#" class="view-all">查看榜单 →</a>
+            </div>
+            <div class="grid-3">
+                <article class="song-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/chart1/300/300" alt="榜单封面">
+                        <div class="play-btn-overlay"><div class="play-icon"></div></div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="song-title">大漠孤烟</h3>
+                        <p class="artist-name">GAI 周延</p>
+                        <div class="card-actions">
+                            <button class="action-btn">▶ 试听</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="song-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/chart2/300/300" alt="榜单封面">
+                        <div class="play-btn-overlay"><div class="play-icon"></div></div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="song-title">黄金时代</h3>
+                        <p class="artist-name">Higher Brothers</p>
+                        <div class="card-actions">
+                            <button class="action-btn">▶ 试听</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="song-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/chart3/300/300" alt="榜单封面">
+                        <div class="play-btn-overlay"><div class="play-icon"></div></div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="song-title">不需要怜悯</h3>
+                        <p class="artist-name">艾热 AIR</p>
+                        <div class="card-actions">
+                            <button class="action-btn">▶ 试听</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <h2 class="section-title" style="margin-bottom: 1.5rem; border: none;">常见问题</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">什么是饶舌歌曲中的Flow？ <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">Flow指的是说唱者处理歌词的方式，包括节奏的快慢、重音的落点以及乐句的停顿与连接。良好的Flow能让歌词听起来更自然、更有律动感。</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">如何开始学习饶舌？ <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">首先建议多听不同风格的饶舌歌曲，培养节奏感。然后尝试跟着伴奏朗读歌词，注意咬字清晰，并逐渐尝试加入押韵和变速技巧。</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">网站上的歌曲是否支持下载？ <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">本站主要提供在线试听服务，支持高音质流媒体播放。部分歌曲可能受版权保护，不支持直接下载。</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">版权声明</a>
+            <a href="#">联系合作</a>
+            <a href="#">用户协议</a>
+        </div>
+        <p class="copyright">&copy; 2023 Rap Hub 饶舌歌曲鉴赏平台. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Simple Play Button Interaction (Visual only)
+        document.querySelectorAll('.play-btn-overlay').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // In a real app, this would toggle audio playback
+                // Visual feedback for this demo:
+                this.style.backgroundColor = '#ff3e3e';
+                setTimeout(() => {
+                    this.style.backgroundColor = 'rgba(0,0,0,0.6)';
+                }, 300);
+            });
+        });
+    </script>
+</body>
+                          </html>
